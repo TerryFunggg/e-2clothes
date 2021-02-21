@@ -1,13 +1,21 @@
 # README
 
-* CMS
+* TODO CMS(ROR)
 1. [ ] login
 2. [ ] CRUD shop
 3. [ ] CRUD user
 4. [ ] CRUD product
 5. [ ] verify shop apply
-6. [ ] issue?
+6. [ ] pdf view/download
+7. [ ] (optional) handle issue?
 
-* Shop web page
+* Shop web page(PHP)
 
-* mobile app
+* HOLD mobile app(Flutter)
+
+* Docker Support
+
+* Other(consideration)
+- Deliver status
+- Map support
+- message support

@@ -1,0 +1,13 @@
+# README
+
+* CMS
+1. [ ] login
+2. [ ] CRUD shop
+3. [ ] CRUD user
+4. [ ] CRUD product
+5. [ ] verify shop apply
+6. [ ] issue?
+
+* Shop web page
+
+* mobile app

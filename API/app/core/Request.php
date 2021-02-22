@@ -29,7 +29,7 @@ class Request {
 
     public static function recived()
     {
-        static::$request ?? static::$request = new Request();
+       return static::$request ?? static::$request = new Request();
     }
 
 

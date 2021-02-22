@@ -1,7 +1,8 @@
 <?php
-require __DIR__ . '/core/DB.php';
-require __DIR__ . '/core/Router.php';
-require __DIR__ . '/core/Request.php';
+// register all classes under the core directory
+spl_autoload_register(function($classname){
+   require_once  __DIR__ . '/core/' . $classname .'.php';
+});
 
 //$db = new DB;
 

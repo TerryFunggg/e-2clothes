@@ -1,5 +1,5 @@
 <?php
 
 $routes = [
-    'users' => 'posts.php',
+    'users' => 'users.php',
 ];

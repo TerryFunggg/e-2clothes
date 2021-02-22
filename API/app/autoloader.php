@@ -4,9 +4,12 @@ class AutoLoader
 {
     private static function path($directory, $classname)
     {
-        $file = __DIR__ . '/' .  $directory . '/' .  $classname . '.php';
-        if($file){
-            require_once $file;
+        try{
+
+            require_once __DIR__ . '/' .  $directory . '/' .  $classname . '.php';
+
+        }catch(Exception $e){
+            echo $e->getMessage();
         }
     }
 

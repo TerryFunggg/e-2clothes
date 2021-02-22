@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../helper/untils.php';
+
 class Request {
     private $api = '404';
     private static $request = null;
@@ -7,7 +9,7 @@ class Request {
     private function __construct()
     {
         $uri = $this->getUri();
-        if(file_exists(PROJECT_ROOT . 'app/api/' . $uri[1] . '.php')){
+        if(api_exists($uri[1])){
             $this->api = $uri[1];
         }
 

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_095007) do
+ActiveRecord::Schema.define(version: 2021_02_23_100409) do
+
+  create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "city_id", null: false
+    t.string "zip_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_addresses_on_city_id"
+  end
 
   create_table "cities", charset: "utf8mb4", force: :cascade do |t|
     t.string "city"
@@ -32,4 +40,5 @@ ActiveRecord::Schema.define(version: 2021_02_23_095007) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "addresses", "cities"
 end

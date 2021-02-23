@@ -16,3 +16,10 @@ end
       city: Faker::Address.city
     })
 end
+
+10.times do | index |
+  Address.create(
+    city_id: index,
+    zip_code: Faker::Address.zip_code
+  )
+end

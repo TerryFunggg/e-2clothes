@@ -9,3 +9,10 @@
       phone:        Faker::PhoneNumber.cell_phone
     })
 end
+
+20.times do
+  City.create(
+    {
+      city: Faker::Address.city
+    })
+end

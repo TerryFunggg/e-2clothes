@@ -21,15 +21,9 @@ class CreateAddress < BaseMutation
         city_id:            city.id)
 
     if address.save
-      {
-        address: address,
-        errors: []
-      }
+      { address: address }
     else
-      {
-        user: nil,
-        errors: address.errors.full_messages
-      }
+      { errors: address.errors.full_messages }
     end
   end
 end

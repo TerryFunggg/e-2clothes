@@ -14,4 +14,14 @@ end
     building_address: Faker::Address.building_number,
     zip_code: Faker::Address.zip_code
   )
+
+  User.create(
+    {
+      first_name:   Faker::Name.first_name ,
+      last_name:    Faker::Name.last_name,
+      email:        Faker::Internet.email,
+      password:     Faker::Internet.password(min_length: 6, max_length: 20),
+      avator:       Faker::Avatar.image(slug: "my-own-slug", size: "50x50"),
+      phone:        Faker::PhoneNumber.cell_phone
+    })
 end

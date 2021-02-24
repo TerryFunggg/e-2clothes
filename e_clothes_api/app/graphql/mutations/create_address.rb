@@ -1,13 +1,14 @@
 module Mutations
 class CreateAddress < BaseMutation
-  argument :street_address, String, required: true
-  argument :secondary_address, String, required: true
-  argument :building_address, String, required: true
-  argument :zip_code, String, required: true
-  argument :city, String, required: true
 
-  field :address, Types::AddressType, null: false
-  field :errors, [String], null:false
+  argument :street_address,     String, required: true
+  argument :secondary_address,  String, required: true
+  argument :building_address,   String, required: true
+  argument :zip_code,           String, required: true
+  argument :city,               String, required: true
+
+  field :errors,    [String],           null: false
+  field :address,   Types::AddressType, null: false
 
   def resolve(city:, street_address:, secondary_address:, building_address:, zip_code:)
     City.create(name: city) if City.where(name: city).empty?

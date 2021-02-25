@@ -14,15 +14,15 @@ class CreateAddress < BaseMutation
     end
   end
 
-  def create(city:, street_address:, secondary_address:, building_address:, zip_code:)
-    City.create(name: city) if City.where(name: city).empty?
-    city = City.find_by(name: city)
-    Address.new(
-        street_address:     street_address,
-        secondary_address:  secondary_address,
-        building_address:   building_address,
-        zip_code:           zip_code,
-        city_id:            city.id)
+  def create(address)
+    if City.where(name: address[:city]).empty?
+      city = City.new(name: city)
+      city.save
+    else
+      city = City.find_by(name: address[:city])
+    end
+      address[:city] = city
+      Address.new(address)
   end
 end
 end

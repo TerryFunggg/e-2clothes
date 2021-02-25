@@ -14,9 +14,9 @@ class CreateAddress < BaseMutation
     end
   end
 
-  def create(address)
+  def self.create(address)
     if City.where(name: address[:city]).empty?
-      city = City.new(name: city)
+      city = City.new(name: address[:city])
       city.save
     else
       city = City.find_by(name: address[:city])

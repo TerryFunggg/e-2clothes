@@ -7,8 +7,8 @@ class CreateAddress < BaseMutation
   argument :zip_code,           String, required: true
   argument :city,               String, required: true
 
-  field :errors,    [String],           null: false
-  field :address,   Types::AddressType, null: false
+  field :errors,    Types::ValidationErrorsType, null: true
+  field :address,   Types::AddressType, null: true
 
   def resolve(city:, street_address:, secondary_address:, building_address:, zip_code:)
     City.create(name: city) if City.where(name: city).empty?
@@ -23,7 +23,7 @@ class CreateAddress < BaseMutation
     if address.save
       { address: address }
     else
-      { errors: address.errors.full_messages }
+      { errors: address.errors }
     end
   end
 end

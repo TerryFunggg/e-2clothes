@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_124821) do
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "address_id"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -40,7 +41,9 @@ ActiveRecord::Schema.define(version: 2021_02_24_124821) do
     t.datetime "last_login"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_users_on_address_id"
   end
 
   add_foreign_key "addresses", "cities"
+  add_foreign_key "users", "addresses"
 end

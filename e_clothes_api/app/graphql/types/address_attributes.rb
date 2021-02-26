@@ -1,11 +1,10 @@
 module Types
   class AddressAttributes < Types::BaseInputObject
-  description "Attributes for creating or updating an user"
+    description 'Attributes for creating or updating an user'
 
-    argument :street_address,     String, required: true
-    argument :secondary_address,  String, required: true
-    argument :building_address,   String, required: true
-    argument :zip_code,           String, required: true
-    argument :city,               String, required: true
+    %i[street_address secondary_address building_address zip_code city].each do |item|
+      argument item, String, required: true
+    end
+
   end
 end

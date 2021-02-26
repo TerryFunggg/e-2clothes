@@ -1,13 +1,13 @@
 module Types
   class UserAttributes < Types::BaseInputObject
-    description "Attributes for creating or updating an user"
+    description 'Attributes for creating or updating an user'
 
-    argument :first_name,         String, required: true
-    argument :last_name,          String, required: true
-    argument :email,              String, required: true
-    argument :password,           String, required: true
-    argument :avator,             String, required: false
-    argument :phone,              String, required: false
+    %i[first_name last_name email password].each do |item|
+      argument item, String, required: true
+    end
 
+    %i[avator phone].each do |item|
+      argument item, String, required: false
+    end
   end
 end

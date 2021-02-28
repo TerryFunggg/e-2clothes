@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: one
+  logo: MyString
+  title: MyString
+  description: MyString
+  state: MyString
+  is_active: false
+
+two:
+  address: two
+  logo: MyString
+  title: MyString
+  description: MyString
+  state: MyString
+  is_active: false

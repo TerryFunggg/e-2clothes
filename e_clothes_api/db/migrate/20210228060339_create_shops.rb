@@ -5,8 +5,8 @@ class CreateShops < ActiveRecord::Migration[6.1]
       t.string :logo
       t.string :title
       t.text :description
-      t.integer :apply_state
-      t.boolean :is_active
+      t.integer :apply_state, default: 0
+      t.boolean :is_active, default: false
 
       t.timestamps
     end

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_28_072847) do
 
   create_table "admins", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "premission"
+    t.integer "premission", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_admins_on_user_id"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2021_02_28_072847) do
     t.string "logo"
     t.string "title"
     t.text "description"
-    t.integer "apply_state"
-    t.boolean "is_active"
+    t.integer "apply_state", default: 0
+    t.boolean "is_active", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["address_id"], name: "index_shops_on_address_id"

@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
  * and wrap the LayoutBuilder to return correct view layout 
  * by current context width.
  */
-class Responsive extends StatelessWidget {
+class ResponsiveLayout extends StatelessWidget {
   final Widget mobile;
   final Widget? tablet;
   final Widget? desktop;
   static final mobileMaxWidth = 768;
   static final tabletMaxWidth = 1224;
-  const Responsive({
+  const ResponsiveLayout({
     Key? key,
     required this.mobile,
     this.tablet,

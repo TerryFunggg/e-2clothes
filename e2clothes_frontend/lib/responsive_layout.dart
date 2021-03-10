@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 /**
- * Responsive class defined some devices width 
+ * ResponsiveLayout class defined some devices width 
  * and wrap the LayoutBuilder to return correct view layout 
  * by current context width.
+ * The mobile view is default and required.
  */
 class ResponsiveLayout extends StatelessWidget {
   final Widget mobile;
@@ -21,6 +22,10 @@ class ResponsiveLayout extends StatelessWidget {
   static double getContextWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;
 
+  /**
+   * Those is* helper methods can use to decide some widgets active or not 
+   * based on different devices
+   */
   static bool isMobile(BuildContext context) =>
       getContextWidth(context) < mobileMaxWidth;
 

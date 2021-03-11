@@ -1,0 +1,2 @@
+class Categroy < ApplicationRecord
+end

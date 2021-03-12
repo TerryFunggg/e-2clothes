@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_034619) do
+ActiveRecord::Schema.define(version: 2021_03_12_040900) do
 
   create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "city_id", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_03_12_034619) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_admins_on_user_id"
+  end
+
+  create_table "cart_products", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
   end
 
   create_table "carts", charset: "utf8mb4", force: :cascade do |t|
@@ -124,6 +133,8 @@ ActiveRecord::Schema.define(version: 2021_03_12_034619) do
 
   add_foreign_key "addresses", "cities"
   add_foreign_key "admins", "users"
+  add_foreign_key "cart_products", "carts"
+  add_foreign_key "cart_products", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "orders", "carts"
   add_foreign_key "product_categroys", "categroys"

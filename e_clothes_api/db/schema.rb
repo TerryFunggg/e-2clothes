@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_043936) do
+ActiveRecord::Schema.define(version: 2021_03_12_034619) do
 
   create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "city_id", null: false
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2021_03_11_043936) do
     t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
+  create_table "product_categroys", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "categroy_id"
+    t.bigint "product_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["categroy_id"], name: "index_product_categroys_on_categroy_id"
+    t.index ["product_id"], name: "index_product_categroys_on_product_id"
+  end
+
   create_table "products", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "shop_id", null: false
     t.string "name"
@@ -117,6 +126,8 @@ ActiveRecord::Schema.define(version: 2021_03_11_043936) do
   add_foreign_key "admins", "users"
   add_foreign_key "carts", "users"
   add_foreign_key "orders", "carts"
+  add_foreign_key "product_categroys", "categroys"
+  add_foreign_key "product_categroys", "products"
   add_foreign_key "products", "shops"
   add_foreign_key "shop_owners", "shops"
   add_foreign_key "shop_owners", "users"

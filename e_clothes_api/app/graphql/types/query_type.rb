@@ -39,6 +39,7 @@ module Types
     end
 
     def shop(id:)
+      # Shop.select("shops.*,users.*").joins(:users).find_by('shop_owners.user_id = ?', 21)
       Shop.find(id)
     end
 

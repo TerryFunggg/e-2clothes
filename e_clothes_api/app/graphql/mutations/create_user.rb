@@ -3,7 +3,7 @@ module Mutations
     argument :user, Types::UserAttributes, required: true
     argument :address, Types::AddressAttributes, required: false
 
-    field :user,    Types::UserType, null: true
+    field :user,    Types::Users::UserType, null: true
     field :errors,  Types::ValidationErrorsType, null: true
 
     def resolve(user:, address: {})

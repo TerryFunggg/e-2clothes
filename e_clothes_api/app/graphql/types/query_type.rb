@@ -19,8 +19,8 @@ module Types
     end
 
     # /user
-    field :users, [Types::UserType], description: "Return a list of User", null: false
-    field :user, Types::UserType, description: "Get User by ID", null: false do
+    field :users, [Types::Users::UserType], description: "Return a list of User", null: false
+    field :user, Types::Users::UserType, description: "Get User by ID", null: false do
       argument :id, ID, required: true
     end
 

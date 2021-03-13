@@ -1,9 +1,9 @@
 module Mutations
 class CreateAddress < BaseMutation
-  argument :attributes, Types::AddressAttributes, required: true
+  argument :attributes, Types::Address::AddressAttributes, required: true
 
   field :errors,    Types::ValidationErrorsType, null: true
-  field :address,   Types::AddressType, null: true
+  field :address,   Types::Address::AddressType, null: true
 
   def resolve(attributes:)
     address = create(attributes.to_h)

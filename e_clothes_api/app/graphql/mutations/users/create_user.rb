@@ -2,7 +2,7 @@ module Mutations
   module Users
     class CreateUser < BaseMutation
       argument :user, Types::Users::UserAttributes, required: true
-      argument :address, Types::AddressAttributes, required: false
+      argument :address, Types::Address::AddressAttributes, required: false
 
       field :user,    Types::Users::UserType, null: true
       field :errors,  Types::ValidationErrorsType, null: true

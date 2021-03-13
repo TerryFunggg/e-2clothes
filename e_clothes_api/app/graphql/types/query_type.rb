@@ -5,8 +5,8 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     # /address
-    field :addresses, [Types::AddressType], description: "Return a list of address", null: false
-    field :address, Types::AddressType, description: "Get address by ID", null: false do
+    field :addresses, [Types::Address::AddressType], description: "Return a list of address", null: false
+    field :address, Types::Address::AddressType, description: "Get address by ID", null: false do
       argument :id, ID, required: true
     end
 

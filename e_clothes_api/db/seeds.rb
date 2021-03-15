@@ -26,7 +26,7 @@ end
   user.save
 end
 
-5.times do |index|
+20.times do |index|
   address = Address.new(
       city_id: rand(1...20),
       street_address: Faker::Address.street_address,
@@ -58,4 +58,21 @@ end
       shop: shop,
       apply_state:0
     )
+end
+
+10.times do
+  Categroy.create(
+    name: Faker::Lorem.word
+  )
+end
+
+
+50.times do |index|
+  Product.create(
+    shop_id: rand(1...20),
+    name: Faker::Lorem.word,
+    price: Faker::Number.decimal(l_digits: 2),
+    description: Faker::Lorem.paragraph(sentence_count: 4),
+    quality: rand(1..50)
+  )
 end

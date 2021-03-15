@@ -66,13 +66,16 @@ end
   )
 end
 
-
 50.times do |index|
-  Product.create(
+  p = Product.new(
     shop_id: rand(1...20),
     name: Faker::Lorem.word,
     price: Faker::Number.decimal(l_digits: 2),
     description: Faker::Lorem.paragraph(sentence_count: 4),
     quality: rand(1..50)
   )
+
+  p.categroys << Categroy.find(rand(1...10))
+
+  p.save
 end

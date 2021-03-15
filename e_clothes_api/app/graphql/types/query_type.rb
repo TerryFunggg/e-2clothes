@@ -24,6 +24,12 @@ module Types
       argument :id, ID, required: true
     end
 
+    # /category
+    field :categroys, [Types::Products::CategroyType], null: false, description: "Return a list of category"
+    field :categroy,  Types::Products::CategroyType, null: false, description: "Return a category list"  do
+      argument :id, ID, required: true
+    end
+
     def addresses
       Address.all
     end
@@ -49,6 +55,14 @@ module Types
 
     def shops
       Shop.all
+    end
+
+    def categroys
+      Categroy.all
+    end
+
+    def categroy(id:)
+      Categroy.find(id)
     end
 
   end

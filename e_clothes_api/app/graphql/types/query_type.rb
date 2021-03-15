@@ -30,6 +30,13 @@ module Types
       argument :id, ID, required: true
     end
 
+    # /Product
+    field :products, [Types::Products::ProductType], null: false, description: "Return a list of Product"
+    field :product,  Types::Products::ProductType, null: false, description: "Return a product by id" do
+      argument :id, ID, required: true
+    end
+
+
     def addresses
       Address.all
     end
@@ -63,6 +70,14 @@ module Types
 
     def categroy(id:)
       Categroy.find(id)
+    end
+
+    def products
+      Product.all
+    end
+
+    def product(id:)
+      Product.find(id)
     end
 
   end

@@ -36,6 +36,12 @@ module Types
       argument :id, ID, required: true
     end
 
+    # /Order
+    field :carts, [Types::CartType], null: false, description: "Return a list of cart"
+    field :cart,  Types::CartType, null: false, description: "Return a carts by id" do
+      argument :id, ID, required: true
+    end
+
 
     def addresses
       Address.all
@@ -78,6 +84,15 @@ module Types
 
     def product(id:)
       Product.find(id)
+    end
+
+
+    def carts
+      Cart.all
+    end
+
+    def cart(id:)
+      Cart.find(id)
     end
 
   end

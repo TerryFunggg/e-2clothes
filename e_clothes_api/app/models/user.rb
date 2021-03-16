@@ -3,4 +3,5 @@ class User < ApplicationRecord
   has_one :admin
   has_many :shop_owners
   has_many :shops, through: :shop_owners
+  has_many :carts
 end

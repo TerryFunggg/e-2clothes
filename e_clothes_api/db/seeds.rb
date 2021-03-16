@@ -79,3 +79,10 @@ end
 
   p.save
 end
+
+10.times do |index|
+  Cart.create(
+    user_id: rand(1...20),
+    product_id: rand(1...50)
+  )
+end
